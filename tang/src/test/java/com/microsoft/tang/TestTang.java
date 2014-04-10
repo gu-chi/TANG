@@ -407,7 +407,8 @@ public class TestTang {
   public void testInjectInjector() throws InjectionException, BindException {
     Injector i = Tang.Factory.getTang().newInjector();
     InjectInjector ii = i.getInstance(InjectInjector.class);
-    Assert.assertSame(i, ii.i);
+    Assert.assertTrue(ii.i instanceof Injector);
+    Assert.assertNotSame(i, ii.i);
   }
   
   @Test
